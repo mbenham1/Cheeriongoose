@@ -1,0 +1,10 @@
+.card, .jumbotron {
+        text-align: center;
+        margin: 0 auto;
+        width: 60%;
+    }
+
+.pft {
+    text-decoration: none;
+    color: inherit;
+}
