@@ -21,7 +21,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Mongoose Boilerplate
-// mongoose.connect("mongodb://localhost/newsscraper", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/scraper", { useNewUrlParser: true });
 
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");

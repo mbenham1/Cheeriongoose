@@ -2,21 +2,26 @@
     <h1>Cheeriongoose</h1>
     <h2><a class="pft" href="https://profootballtalk.nbcsports.com/">Pro Football Talk</a> Top Story Scraper</h2>
 </div>
-<div class="card">
+<div id="artles" class="card">
+
     <table class="table table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th>Title</th>
-            <th>Link</th>
-        </tr>
-    </thead>
-    <tbody class="table-striped">
-        {{#each result}}
-        <tr>
-            <td>{{title}}</td>
-            <td><a href="{{link}}">{{link}}</a></td>
-        </tr>
-        {{/each}}
-    </tbody>
+        <thead class="thead-dark">
+            <tr>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody class="table-striped">
+            {{#each article}}
+            <tr id="articles">
+                <td class="title">{{title}}</td>
+                <td class="link"><a href="{{link}}">{{link}}</a></td>
+                <td><button type="button" class="btn btn-primary comment" data-id={{this._id}}>Save</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
     </table>
+
 </div>
