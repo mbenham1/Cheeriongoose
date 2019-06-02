@@ -1,7 +1,8 @@
 <div class="jumbotron">
     <h1>Cheeriongoose</h1>
     <h2><a class="pft" href="https://profootballtalk.nbcsports.com/">Pro Football Talk</a> Top Story Scraper</h2>
-</div>
+    <button id="scrape" type="button" class="btn btn-success">Scrape Most Current</button>
+    </div>
 <div id="artles" class="card">
 
     <table class="table table-striped">
@@ -17,7 +18,7 @@
             <tr id="articles">
                 <td class="title">{{title}}</td>
                 <td class="link"><a href="{{link}}">{{link}}</a></td>
-                <td><button type="button" class="btn btn-primary comment" data-id={{this._id}}>Save</button>
+                <td><button id="delete" type="button" class="btn btn-danger danger" data-id={{this._id}}>Delete</button>
                 </td>
             </tr>
             {{/each}}

@@ -9,31 +9,27 @@
 //     }
 //   });
 
-$(document).on("click", "#comment", function() {
-    $("#comment-modal").modal();
-    // Grab the id associated with the article from the submit button
-    var thisId = $(this).attr("data-id");
-  
-    // Run a POST request to change the note, using what's entered in the inputs
+$(document).on("click", "#delete", function () {
+
+    var thisID = $(this).attr("data-id");
+
     $.ajax({
-      method: "POST",
-      url: "/articles/" + thisId,
-      data: {
-        // Value taken from title input
-        title: $("#titleinput").val(),
-        // Value taken from note textarea
-        link: $("#bodyinput").val()
-      }
+        method: "GET",
+        url: "/delete/" + thisID
     })
-      // With that done
-      .then(function(data) {
-        // Log the response
-        console.log(data);
-        // Empty the notes section
-        $("#notes").empty();
-      });
-  
-    // Also, remove the values entered in the input and textarea for note entry
-    $("#titleinput").val("");
-    $("#bodyinput").val("");
-  });
+        .then(function (data) {
+            location.reload();
+        });
+
+});
+
+$(document).on("click", "#scrape", function () {
+
+    $.get("/scrape").then(function (data) {
+        console.log("Scrape successful");
+    });
+    location.reload();
+
+})
+
+
