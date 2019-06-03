@@ -1,0 +1,22 @@
+<div class="jumbotron">
+
+  <h1>Cheeriongoose</h1>
+  <h2><a class="pft" href="https://profootballtalk.nbcsports.com/">Pro Football Talk</a> Top Story Scraper</h2>
+
+</div>
+
+<div class="card">
+  {{#each article}}
+  <p><strong>Title</strong></p>
+  {{title}}
+  <p><strong>Link</strong></p>
+  {{link}}
+  {{!-- {{this._id}} --}}
+  {{/each}}
+  <div class="container">
+  <textarea class="form-control rounded-0" placeholder="Enter a comment" id="add-comment" rows="3" data-id={{this._id}}></textarea>
+  </textarea>
+    <button id="submit" class="btn btn-info" data-id={{this._id}}>Submit</button>
+  </div>
+
+</div>
