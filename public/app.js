@@ -9,7 +9,6 @@
 //     }
 //   });
 
-
 $(document).on("click", "#delete", function () {
 
     var thisID = $(this).attr("data-id");
@@ -24,13 +23,24 @@ $(document).on("click", "#delete", function () {
 
 });
 
+$(document).on("click", "#preview", function () {
+
+    var link = $(this).attr("data-link");
+    var thisLink = {link: link}
+    // console.log(thisLink);
+    $.post("/", thisLink, function(data) {
+        // console.log(data);
+        $(".preview-tab").text(data);
+    })
+
+})
+
 $(document).on("click", "#scrape", function () {
 
     $.get("/scrape").then(function (data) {
-        console.log("Scrape successful");
+        alert("Please refresh!")
     });
     location.reload();
-
 })
 
 $(document).on("click", "#submit", function () {
@@ -56,30 +66,5 @@ $(document).on("click", "#submit", function () {
     // Also, remove the values entered in the input and textarea for note entry
     $("#add-comment").val("");
 });
-
-// $(document).on("click", "#comment", function() {
-//     $("#comment-modal").modal();
-// });
-
-// $(document).on("click", "#submit", addComment);
-
-// function addComment(event) {
-// 	event.preventDefault();
-
-// 	var comment = $("#add-comment").val();
-//     var thisID = $(this).attr("data-id");
-
-// 	$.ajax({
-// 		method: "POST",
-// 		url: "/articles/" + thisID,
-// 		data: {
-// 			body: comment
-// 		}
-// 	})
-// 		.then(function(data) {
-//             $("#add-comment").val("");
-// 		});
-// }
-
 
 

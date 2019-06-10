@@ -1,5 +1,5 @@
 <div class="jumbotron">
-
+    <a id="preview-jump"></a>
     <h1>Cheeriongoose</h1>
     <h2><a class="pft" href="https://profootballtalk.nbcsports.com/">Pro Football Talk</a> Top Story Scraper</h2>
     <button id="scrape" type="button" class="btn btn-success">Scrape Most Current</button>
@@ -7,26 +7,27 @@
 </div>
 
 <div id="articles" class="card">
-
+    <p class="preview-tab"></p>
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
                 <th>Title</th>
                 <th>Link</th>
-                <th>Comment</th>
+                <th>Preview</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody class="table-striped">
+
             {{#each article}}
             <tr id="articles">
                 <td class="title">{{title}}</td>
                 <td class="link"><a href="{{link}}">{{link}}</a></td>
-                <td><button id="comment" type="button" class="btn btn-primary comment" data-id={{this._id}}>Comment</button>
-                <td><button id="delete" type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
-                </td>
+                <td><a href="#preview-jump"><button id="preview" type="button" class="btn btn-primary preview" data-link={{this.link}} data-id={{this._id}}>Preview</button></a>
+                <td><button id="delete" type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button></td>
             </tr>
             {{/each}}
+
         </tbody>
     </table>
 

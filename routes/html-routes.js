@@ -18,6 +18,30 @@ module.exports = function (app) {
 
   });
 
+  app.post('/', function (req, res) {
+    var link = req.body.link;
+    // console.log(link);
+
+    axios.get(link).then(function (response) {
+
+      var $ = cheerio.load(response.data);
+
+      $("div.entry-content").each(function (i, element) {
+
+        var result = {};
+        result.preview = $(element).find("p").text();
+        // console.log(result.preview)
+        res.json(result.preview);
+      })
+
+    })
+
+  })
+
+  app.get('/preview', function (req, res) {
+
+  })
+
   app.get("/scrape", function (req, res) {
 
     axios.get("https://profootballtalk.nbcsports.com/").then(function (response) {
@@ -41,7 +65,7 @@ module.exports = function (app) {
 
     });
 
-    res.send("Scrape Complete");
+    res.json("Scrape Complete");
 
   })
 
