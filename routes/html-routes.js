@@ -7,9 +7,10 @@ module.exports = function (app) {
   app.get('/', function (req, res) {
 
     db.Article.find({}).exec(function (error, data) {
+      var reverse = data.reverse();
 
       var hbsObject = {
-        article: data
+        article: reverse
       };
       // console.log(hbsObject);
       res.render("index", hbsObject);
@@ -35,10 +36,6 @@ module.exports = function (app) {
       })
 
     })
-
-  })
-
-  app.get('/preview', function (req, res) {
 
   })
 

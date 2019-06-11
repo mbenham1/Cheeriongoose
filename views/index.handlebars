@@ -1,5 +1,5 @@
 <div class="jumbotron">
-    <a id="preview-jump"></a>
+    {{!-- <a id="preview-jump"></a> --}}
     <h1>Cheeriongoose</h1>
     <h2><a class="pft" href="https://profootballtalk.nbcsports.com/">Pro Football Talk</a> Top Story Scraper</h2>
     <button id="scrape" type="button" class="btn btn-success">Scrape Most Current</button>
@@ -23,7 +23,7 @@
             <tr id="articles">
                 <td class="title">{{title}}</td>
                 <td class="link"><a href="{{link}}">{{link}}</a></td>
-                <td><a href="#preview-jump"><button id="preview" type="button" class="btn btn-primary preview" data-link={{this.link}} data-id={{this._id}}>Preview</button></a>
+                <td><button id="preview" type="button" class="btn btn-primary preview" data-link={{this.link}} data-id={{this._id}}>Preview</button>
                 <td><button id="delete" type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button></td>
             </tr>
             {{/each}}

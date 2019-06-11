@@ -30,17 +30,23 @@ $(document).on("click", "#preview", function () {
     // console.log(thisLink);
     $.post("/", thisLink, function(data) {
         // console.log(data);
+        window.scrollTo(0,0);
         $(".preview-tab").text(data);
     })
 
 })
 
+var here = window.location.href;
+
 $(document).on("click", "#scrape", function () {
 
     $.get("/scrape").then(function (data) {
-        alert("Please refresh!")
+        // alert("Please refresh!")
     });
-    location.reload();
+
+    setTimeout(function(){
+        window.location.reload(1);
+     }, 1500);
 })
 
 $(document).on("click", "#submit", function () {
