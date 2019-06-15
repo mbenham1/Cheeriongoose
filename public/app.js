@@ -41,7 +41,6 @@ var here = window.location.href;
 $(document).on("click", "#scrape", function () {
 
     $.get("/scrape").then(function (data) {
-        // alert("Please refresh!")
     });
 
     setTimeout(function(){
@@ -51,28 +50,24 @@ $(document).on("click", "#scrape", function () {
 
 // To Add = Comment Section
 
-// $(document).on("click", "#submit", function () {
-//     // Grab the id associated with the article from the submit button
-//     var thisID = $(this).attr("data-id");
+$(document).on("click", "#submit", function () {
 
-//     // Run a POST request to change the note, using what's entered in the inputs
-//     $.ajax({
-//         method: "POST",
-//         url: "/articles/" + thisID,
-//         data: {
-//             body: $("#add-comment").val()
-//         }
-//     })
-//         // With that done
-//         .then(function (data) {
-//             // Log the response
-//             console.log(data);
-//             // Empty the notes section
-//             $("#notes").empty();
-//         });
+    var thisID = $(this).attr("data-id");
 
-//     // Also, remove the values entered in the input and textarea for note entry
-//     $("#add-comment").val("");
-// });
+    $.ajax({
+        method: "POST",
+        url: "/articles/" + thisID,
+        data: {
+            body: $("#add-comment").val()
+        }
+    })
+
+        .then(function (data) {
+            console.log(data);
+            $("#notes").empty();
+        });
+
+    $("#add-comment").val("");
+});
 
 
