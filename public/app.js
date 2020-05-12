@@ -31,7 +31,9 @@ $(document).on("click", "#preview", function () {
     $.post("/", thisLink, function(data) {
         // console.log(data);
         window.scrollTo(0,0);
-        $(".preview-tab").text(data);
+        $(".preview-tab").text(data.preview);
+        $("#preview-image").attr({"src": data.image, "height": 250, "width": 300});
+        $("#preview-image").css({"padding": 10});
     })
 
 })

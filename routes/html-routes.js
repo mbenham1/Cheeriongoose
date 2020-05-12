@@ -31,8 +31,8 @@ module.exports = function (app) {
 
         var result = {};
         result.preview = $(element).find("p").text();
-        // console.log(result.preview)
-        res.json(result.preview);
+        result.image = $(element).find("img").attr("src");
+        res.json(result);
         
       })
     })

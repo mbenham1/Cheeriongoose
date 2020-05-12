@@ -8,3 +8,7 @@
     text-decoration: none;
     color: inherit;
 }
+
+#preview-image {
+    margin: 0 auto;
+}
